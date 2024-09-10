@@ -34,4 +34,8 @@ public class Vehicule {
 
     private double kilometrerouler;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "chauffeur_id")
+    private Chauffeur chauffeur;
+
 }

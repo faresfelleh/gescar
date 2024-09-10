@@ -6,6 +6,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @Data
 @Entity
 @Builder
@@ -28,6 +30,9 @@ public class Chauffeur {
     private String emailChauffeur;
     @Column(length =256)
     private String permisChauffeur;
+
+    @OneToMany(mappedBy = "chauffeur", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Vehicule> vehicules;
 
 
 }
